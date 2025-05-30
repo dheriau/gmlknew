@@ -1,345 +1,149 @@
-/* Temel stiller ve düzenlemeler */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f6f8;
-    color: #222;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
 header {
-    background: #005baa;
-    color: #fff;
-    padding: 20px 0;
+  background-color: #004a99;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
-
-header h1 {
-    margin: 0;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #0073e6;
+  padding: 0.5rem 0;
 }
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-    display: flex;
-    gap: 20px;
-}
-
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
 }
-
-nav a:hover {
-    color: #ffd700;
-}
-
 .hero {
-    position: relative;
-    text-align: center;
-    margin-bottom: 40px;
+  position: relative;
+  background: linear-gradient(120deg, #0073e6 60%, #004a99 100%);
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 0 0 32px 32px;
+  overflow: hidden;
 }
-
-.hero img {
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-    filter: brightness(0.7);
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0,115,230,0.85) 60%, rgba(0,74,153,0.92) 100%);
+  z-index: 1;
 }
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    width: 90%;
-    max-width: 700px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
 }
-
-.hero-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
-
-.hero-text p {
-    font-size: 1.2rem;
+.hero p {
+  font-size: 1.2rem;
+  margin: 0;
 }
-
-/* Bilgi Kartları */
-.info-cards-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
+.section {
+  padding: 2rem;
+  background-color: white;
+  margin: 1rem;
+  border-radius: 8px;
 }
-
-.info-card {
-    background: #e3ecf7;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 20px;
-    width: 30%;
-    min-width: 260px;
-    max-width: 340px;
-    box-sizing: border-box;
-    text-align: center;
-    transition: transform 0.2s;
-    margin-bottom: 20px;
-}
-
-.info-card img {
-    width: 100%;
-    max-width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.info-card h3 {
-    color: #005baa;
-}
-
-.info-card p {
-    color: #23304a;
-}
-
-/* Sigorta Türleri Geçiş Alanı */
-.sigorta-turleri-section {
-    width: 100%;
-    background: linear-gradient(135deg, #005baa 80%, #e3ecf7 100%);
-    border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    margin: 0 auto 32px auto;
-    padding: 40px 20px 32px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sigorta-turleri-baslik {
-    text-align: center;
-    margin-bottom: 32px;
-    color: #fff;
-    font-size: 2.1rem;
-    letter-spacing: 1px;
-    font-weight: bold;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.sigorta-turleri-section .services {
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-}
-
-/* Hizmetler */
 .services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
-
-.service-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.2s;
+.service {
+  background-color: #e6f0ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,74,153,0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
-
-.service-card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+.service:hover {
+  box-shadow: 0 8px 24px rgba(0,74,153,0.12);
+  transform: translateY(-4px) scale(1.03);
 }
-
-.icon-svg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 12px;
+.service i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0073e6;
+  display: block;
 }
-
-.service-card h3 {
-    margin: 10px 0 8px 0;
-    color: #005baa;
+.service h3 {
+  margin: 0.5rem 0 0.7rem 0;
+  font-size: 1.15rem;
+  color: #004a99;
 }
-
-.service-card p {
-    font-size: 1rem;
-    color: #444;
+.service p {
+  color: #333;
+  font-size: 1rem;
 }
-
-section.container {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 30px 20px;
-    margin-bottom: 30px;
-}
-
-section h2 {
-    color: #005baa;
-    margin-top: 0;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 400px;
-}
-
-input, textarea {
-    padding: 8px;
-    border: 1px solid #bbb;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-button[type="submit"] {
-    background: #005baa;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button[type="submit"]:hover {
-    background: #003f7d;
-}
-
 footer {
-    background: #003f7d;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 1rem;
-    margin-top: 30px;
+  background-color: #00264d;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
-
-/* WhatsApp Destek Butonu ve Paneli */
-#wp-support-pane {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-
-#wp-support-btn {
-    background: #25D366;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
+.whatsapp-button:hover {
+  background-color: #1ebe5b;
 }
-
-#wp-support-btn:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.7rem;
 }
-
-#wp-support-panel {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
-    width: 270px;
-    margin-bottom: 12px;
-    animation: fadeInWpPanel 0.2s;
+.icon i {
+  font-size: 2.2rem;
+  color: #1976d2;
 }
-
-@keyframes fadeInWpPanel {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-
-.wp-panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #25D366;
-    color: #fff;
-    padding: 12px 16px;
-    border-radius: 12px 12px 0 0;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-#wp-close-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-left: 8px;
-}
-
-.wp-panel-body {
-    padding: 18px 16px 16px 16px;
-    font-size: 1rem;
-    color: #222;
-}
-
-.wp-panel-link {
-    display: inline-block;
-    margin-top: 10px;
-    background: #25D366;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-
-.wp-panel-link:hover {
-    background: #128C7E;
-}
-
-/* Responsive düzeltme */
-@media (max-width: 1100px) {
-    .info-card {
-        width: 45%;
-    }
-}
+/* Mobil uyum */
 @media (max-width: 900px) {
-    .info-cards-flex, .services {
-        flex-direction: column;
-        align-items: center;
-    }
-    .info-card {
-        width: 90%;
-    }
+  .services {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.2rem; }
+  .services {
+    grid-template-columns: 1fr;
+  }
+  .hero-content { padding: 1rem; }
 }

@@ -1,39 +1,46 @@
-// Menüden tıklanan bölümü göster, diğerlerini gizle
-function showSection(sectionId) {
-    const home = document.getElementById('home');
-    const hakkimizda = document.getElementById('hakkimizda');
-    const iletisim = document.getElementById('iletisim');
+// Gelecekte sayfa kaydırma, form validasyonu gibi dinamik işlemler eklenebilir.
+// Şu anlık temel ihtiyaç olmadığı için boş yapı bırakıldı.
 
-    home.style.display = 'none';
-    hakkimizda.style.display = 'none';
-    iletisim.style.display = 'none';
+document.addEventListener("DOMContentLoaded", function() {
+  // Başlık ve ikon eşleştirmesi
+  const iconMap = {
+    "Sağlık Sigortası": "fa-notes-medical",
+    "Araç Sigortası / Kasko": "fa-car",
+    "Konut & DASK": "fa-house",
+    "Hayat Sigortası": "fa-heart",
+    "Seyahat Sigortası": "fa-plane-departure",
+    "İşyeri Sigortası": "fa-briefcase"
+  };
 
-    if (sectionId === 'home') {
-        home.style.display = '';
-    } else if (sectionId === 'hakkimizda') {
-        hakkimizda.style.display = '';
-    } else if (sectionId === 'iletisim') {
-        iletisim.style.display = '';
+  document.querySelectorAll("#hizmetler .service").forEach(serviceDiv => {
+    const h3 = serviceDiv.querySelector("h3");
+    if (h3 && iconMap[h3.textContent.trim()]) {
+      const icon = document.createElement("i");
+      icon.className = `fa-solid ${iconMap[h3.textContent.trim()]}`;
+      icon.style.fontSize = "2.5rem";
+      icon.style.color = "#0073e6";
+      icon.style.display = "block";
+      icon.style.marginBottom = "1rem";
+      h3.parentNode.insertBefore(icon, h3);
     }
+  });
+});
+
+function showSection(sectionId) {
+  // Tüm bölümleri gizle
+  document.getElementById("hizmetler").style.display = "none";
+  document.getElementById("nedenbiz").style.display = "none";
+  document.getElementById("iletisim").style.display = "none";
+  document.getElementById("hero").style.display = "none";
+
+  // İlgili bölümü göster
+  const showEl = document.getElementById(sectionId);
+  if (showEl) showEl.style.display = "";
+
+  // Eğer ana sayfa gibi hero'yu göstermek isterseniz:
+  if (sectionId === "hizmetler") {
+    document.getElementById("hero").style.display = "";
+  }
 }
 
-// Sayfa ilk açıldığında ana sayfa görünsün
-window.onload = function() {
-    showSection('home');
-};
-
-// WhatsApp panel aç/kapat
-document.addEventListener("DOMContentLoaded", function() {
-    const wpBtn = document.getElementById('wp-support-btn');
-    const wpPanel = document.getElementById('wp-support-panel');
-    const wpClose = document.getElementById('wp-close-btn');
-
-    if (wpBtn && wpPanel && wpClose) {
-        wpBtn.addEventListener('click', function() {
-            wpPanel.style.display = 'block';
-        });
-        wpClose.addEventListener('click', function() {
-            wpPanel.style.display = 'none';
-        });
-    }
-});
+console.log("Script yüklendi.");
