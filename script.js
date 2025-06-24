@@ -1,5 +1,5 @@
-// Gelecekte sayfa kaydırma, form validasyonu gibi dinamik işlemler eklenebilir.
-// Şu anlık temel ihtiyaç olmadığı için boş yapı bırakıldı.
+// Script, hizmet başlıklarına uygun ikonlar ekler ve
+// sayfadaki bölümlerin görünürlüğünü yönetir.
 
 document.addEventListener("DOMContentLoaded", function() {
   // Başlık ve ikon eşleştirmesi
@@ -43,4 +43,3 @@ function showSection(sectionId) {
   }
 }
 
-console.log("Script yüklendi.");
